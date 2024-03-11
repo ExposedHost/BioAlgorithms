@@ -41,7 +41,7 @@ def check_hamming(input_sequence, output_sequence):
 if __name__ == "__main__":
     amino_acids = "ACDEFGHIKLMNOPQRSTUVWXYZ"
 
-    input_file = "seq1.fasta"
+    input_file = "seq2.fasta"
     input_record = SeqIO.read(input_file, "fasta")
     input_sequence = str(input_record.seq)
     print(input_sequence)
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     mutants = generate_mutants(input_sequence, hamming_distances)
 
     for distance, sequence in mutants.items():
-        filename = f"mutant_{int(distance*10)}.fasta"
+        filename = f"mutant_seq2_{int(distance*10)}.fasta"
         write_to_fasta(sequence, filename)
         print(check_hamming(input_sequence,sequence))
 
